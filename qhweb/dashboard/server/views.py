@@ -4,7 +4,6 @@ from .resources import logic
 from flask import Flask, request
 app = Flask(__name__)
 
-
 @app.route('/')
 def home_page():
     if request.method == 'GET':  
