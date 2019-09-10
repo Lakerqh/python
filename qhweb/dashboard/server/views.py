@@ -4,6 +4,24 @@ from .resources import logic
 from flask import Flask, request
 app = Flask(__name__)
 
+
+
+@app.route('/register',methods=['POST'])
+def register_user():
+    username = request.form['username']
+    password = request.form['password']
+    register_data = logic.register_user(username,password)
+    return register_data
+
+@app.route('/login',methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    print(username,password)
+    login_data = logic.login_user(username,password)
+    return login_data
+
+
 @app.route('/')
 def home_page():
     if request.method == 'GET':  
